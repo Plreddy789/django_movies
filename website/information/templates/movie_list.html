@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie List</title>
+     <style>
+        body {
+            background-color: #343a40;
+            margin: 0;
+            padding: 0;
+            color:#fff;
+        }
+         .container{
+            display:flex;
+            flex-direction: row;
+            justify-content:space-around;
+            background-color: lightblue;
+            align-items: center;
+            color:#000;
+            font-family: "Helvetica Neue",Helvetica
+         }
+         .profile-container{
+         display:flex;
+         flex-direction: row;
+         justify-content:space-around;
+         column-gap:25px;
+         }
+         .link{
+         color:#fff;
+         }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Movie List</h1>
+    <div class="profile-container">
+        <p>Settings</p>
+        <p>Profile</p>
+        <p>Login</p>
+    </div>
+    </div>
+    <ul>
+        {% for movie in movies %}
+            <li>
+                <h2>{{ movie.name }}</h2>
+                <p><strong>Language:</strong> {{ movie.get_language_display }}</p>
+                <p><strong>Director:</strong> {{ movie.director_name }}</p>
+                <p><strong>Hero:</strong> {{ movie.hero_name }}</p>
+                <p><strong>Genere:</strong> {{ movie.get_genere_display }}</p>
+                <p><strong>Country:</strong> {{ movie.get_country_display }}</p>
+                <p><strong>Streaming Platform:</strong> {{ movie.streaming_platform }}</p>
+                <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+                <p><strong>Budget:</strong> ${{ movie.budget }}</p>
+                <p><strong>Runtime:</strong> {{ movie.runtime }} minutes</p>
+                <p><strong>Rating:</strong> {{ movie.rating }}</p>
+
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="http://www.youtube.com/watch?v" class="link">Youtube</a>
+</body>
+</html>
+
+
